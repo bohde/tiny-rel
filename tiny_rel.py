@@ -1,4 +1,5 @@
 import operator
+from itertools import product
 
 class Rel(object):
     def __init__(self, *tuples):
@@ -33,3 +34,15 @@ class Rel(object):
         ops = [self.make_op(k,v) for k,v in operations.iteritems()]
         passes = lambda d: all(op(d) for op in ops)
         return Rel(*filter(passes, self.tuples))
+
+
+    def natural_join(self, other):
+        def tups():
+            for first, second in product(self.tuples, other.tuples):
+                same = first.viewkeys() & second.viewkeys()
+                if same and all(first[k] == second[k] for k in same):
+                    d = dict()
+                    d.update(first)
+                    d.update(second)
+                    yield d
+        return Rel(*list(tups()))
