@@ -25,3 +25,23 @@ Example
          {"lololol": "John", "last": "Goodman"},
          {"lololol": "Steve", "last": "Buscemi"},
          {"lololol": "Juliane", "last": "Moore"}]
+
+    >>> movies = Rel({'title', 'The Big Lebowski',
+                      'year': 1997},
+                     {'title', "Dr Seuss' The Lorax",
+                      'year': 2012})
+
+    >>> seen = Rel({'name': 'Josh', 
+                    'title', 'The Big Lebowski'},
+                   {'name': 'Alice',
+                    'title': 'The Big Lebowski'},
+                   {'name': 'Alice',
+                    'title': "Dr Seuss' The Lorax"})
+
+    >>> years_seen = movies.natural_join(seen).project('name', 'year')
+        [{'name': 'Josh',
+          'year': 1997},
+         {'name': 'Alice',
+          'year': 1997},
+         {'name': 'Alice',
+          'year': 2012}]
