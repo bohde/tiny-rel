@@ -5,8 +5,8 @@ tiny-rel
 Example
 -------
   
-   >>> from tiny_rel import rel
-   >>> actors = rel({"first": "Jeff", "last": "Bridges},
+   >>> from tiny_rel import Rel
+   >>> actors = Rel({"first": "Jeff", "last": "Bridges"},
                     {"first": "John", "last": "Goodman"},
                     {"first": "Steve", "last": "Buscemi"})
    >>> actors += [{"first": "Juliane", "last": "Moore"}]
