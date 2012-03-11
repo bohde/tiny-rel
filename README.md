@@ -26,13 +26,11 @@ Example
          {"lololol": "Steve", "last": "Buscemi"},
          {"lololol": "Juliane", "last": "Moore"}]
 
-    >>> movies = Rel({'title': 'The Big Lebowski',
-                      'year': 1997},
-                     {'title', "Dr Seuss' The Lorax",
-                      'year': 2012})
+    >>> movies = Rel({'title': 'The Big Lebowski', 'year': 1997},
+                     {'title': "Dr Seuss' The Lorax", 'year': 2012})
 
     >>> seen = Rel({'name': 'Josh', 
-                    'title', 'The Big Lebowski'},
+                    'title': 'The Big Lebowski'},
                    {'name': 'Josh',
                     'title': 'The Importance of Being Earnest'},
                    {'name': 'Alice',
@@ -47,3 +45,4 @@ Example
           'year': 1997},
          {'name': 'Alice',
           'year': 2012}]
+
